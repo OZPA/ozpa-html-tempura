@@ -2,26 +2,3 @@
 
 @import "compass";
 @import "vars";
-
-//header
-.header_cont{
-  @include mq_pc{
-    @include center_layout;
-  }
-}
-
-//nav
-
-
-//contents area
-
-
-//side
-
-
-//footer
-.footer_cont{
-  @include mq_pc{
-    @include center_layout;
-  }
-}
