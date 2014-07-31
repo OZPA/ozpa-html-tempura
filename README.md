@@ -1,5 +1,4 @@
 #ozpa-html-tempura
-=================
 
 Web製作時に使用してるテンプレート。ツッコミどころ（修正したいところ）多し。名前とか。
 
@@ -14,15 +13,13 @@ Web製作時に使用してるテンプレート。ツッコミどころ（修�
 ##RWD
 グリッドシステムのRWD仕様になってます。
 
-`
-<div class="cont">
+`<div class="cont">
   <div class="row">
     <div class="span_2"></div>
     <div class="span_4"></div>
     <div class="span_6"></div>
   </div>
-</div>
-`
+</div>`
 
 ##font-awesome
 デフォルトで[Font Awesome](http://fortawesome.github.io/Font-Awesome/cheatsheet/)が使えるようになってるので
