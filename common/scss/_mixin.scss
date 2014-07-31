@@ -1,0 +1,253 @@
+@charset "UTF-8";
+@import "vars";
+
+// Media Queries
+@mixin mq_pc {
+  @media only screen and (min-width: $width_tablet + 1) {
+    @content;
+  }
+}
+
+@mixin mq_tablet {
+  @media only screen and (min-width: $width_smp) and (max-width: $width_tablet) {
+    @content;
+  }
+}
+
+@mixin mq_smp {
+  @media only screen and (max-width: $width_smp) {
+    @content;
+  }
+}
+
+@mixin mq_tab_smp{
+  @media only screen and(max-width:$width_tablet) {
+    @content;
+  }
+}
+
+//default margin
+@function halfMargin($value:$margin){
+  @return round($value / 2);
+}
+
+//center layout
+@mixin center_layout($margin_top:0,$margin_bottom:0){
+  @include mq_pc{
+  margin: $margin_top auto $margin_bottom auto;
+  max-width:$max_width ;
+  width: 100%;
+  }
+}
+
+//vertical center
+@mixin vertical_middle{
+  vertical-align: middle;
+  display: table-cell;
+}
+
+//font
+@mixin mincho{font-family: "Times New Roman", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho, serif;}
+
+@mixin gothic{font-family: Verdana, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic,  "メイリオ", Meiryo, sans-serif;}
+// @mixin gothic{font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;}
+
+
+@mixin fz($size){
+  font-size: $size + px;
+  font-size: ($size / 10)*1rem;
+}
+//webfont
+
+
+// Text Replace
+@mixin text_hide {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  a {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Mouseover Animation
+@mixin hover_effect($speed:300ms, $opacity:0.7) {
+  @include transition-duration($speed);
+  @include transition-property(opacity);
+  &:hover {
+    @include opacity($opacity);
+  }
+}
+
+//gradation
+@mixin gra_top_lighten($color:#666, $lighten:5%){
+  background-color: $color;
+  @include filter-gradient(lighten($color, $lighten), $color, vertical);
+  @include background-image(linear-gradient(lighten($color, $lighten) 0%, $color 100%));
+}
+@mixin gra_top_darken($color:#666, $darken:5%){
+  background-color: $color;
+  @include filter-gradient(darken($color, $darken), $color, vertical);
+  @include background-image(linear-gradient(darken($color,  $darken) 0%, $color 100%));
+}
+
+//rich border
+@mixin line_top($op1: .2, $op2: .3){
+  border-top: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2) 0 1px 0 inset);
+}
+@mixin line_bottom($op1: .2, $op2: .3){
+  border-bottom: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2)0 1px 0);
+}
+@mixin line_left($op1: .2, $op2: .3){
+  border-left: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow (rgba(255, 255, 255, $op2) -1px 0 0);
+}
+@mixin line_right($op1: .2, $op2: .3){
+  border-right: 1px solid rgba(0, 0, 0, $op1);
+  @include box-shadow(rgba(255, 255, 255, $op2) -1px 0 0 inset);
+}
+
+//text shadow
+@mixin ts_black($op : .2){
+  text-shadow: 1px -1px rgba(0, 0, 0, $op);
+}
+@mixin ts_white($op : .5){
+  text-shadow: -1px 1px rgba(255, 255, 255, $op);
+}
+
+//box
+@mixin zurui_box($shadow: 0.15) {
+  @include box-shadow(rgba(0, 0, 0, $shadow) 0 0 2px);
+}
+@mixin rich_box($shadow: .2){
+  @include box-shadow(rgba(0, 0, 0, $shadow) 0 0 0 2px inset);
+}
+@mixin deboss_box($border: .1, $shadow: .05, $highlight: .8) {
+  border: 1px solid rgba(0,0,0,$border);
+  @include box-shadow(rgba(0,0,0,$shadow) -1px 1px 2px inset, rgba(255,255,255,$highlight) -1px 1px 0);
+}
+@mixin emboss_box($border: .1, $shadow: .05, $highlight: .5) {
+  border: 1px solid rgba(0, 0, 0, $border);
+  @include box-shadow(rgba(0, 0, 0, $shadow) -1px 1px 0, rgba(255, 255, 255, $highlight) -1px 1px 0 inset);
+}
+
+//balloon
+@mixin balloon_left($size: 6px, $color: #FFF, $top: 6px){
+  position: relative;
+  &:after{
+    position: absolute ;
+    content :"";
+    display: block ;
+    border: $size solid transparent ;
+    border-right: $size solid $color ;
+    top: $top ;
+    left: -1 * $size * 2 ;
+  }
+}
+@mixin balloon_left_border($size:6px,$color:#fff,$top:6px,$border-color:#ccc,$border:1px){
+  position:relative;
+  $size2 : $size + $border;
+  @include balloon_left($size,$color,$top);
+    &:before{
+    position:absolute;
+    content:"";
+    display:block;
+    border:$size2 solid transparent;
+    border-right:$size2 solid $border-color;
+    top:$top - $border;
+    left: -1 * $size2 * 2;
+  }
+}
+@mixin balloon_right($size: 6px, $color: #FFF, $top: 6px){
+  position: relative;
+  &:after{
+    position: absolute ;
+    content :"";
+    display: block ;
+    border: $size solid transparent ;
+    border-right: $size solid $color ;
+    top: $top ;
+    right: -1 * $size * 2 ;
+  }
+}
+@mixin balloon_right_border($size:6px,$color:#fff,$top:6px,$border-color:#ccc,$border:1px){
+  position:relative;
+  $size2 : $size + $border;
+  @include balloon_right($size,$color,$top);
+    &:before{
+    position:absolute;
+    content:"";
+    display:block;
+    border:$size2 solid transparent;
+    border-right:$size2 solid $border-color;
+    top:$top - $border;
+    right: -1 * $size2 * 2;
+  }
+}
+@mixin balloon_top($size: 6px, $color: #FFF, $left: 6px){
+  position: relative;
+  &:after{
+    position: absolute ;
+    content :"";
+    display: block ;
+    border: $size solid transparent ;
+    border-bottom: $size solid $color ;
+    top:-1 * $size * 2;
+    left: $left;
+  }
+}
+@mixin balloon_top_border($size:6px,$color:#fff,$top:6px,$border-color:#ccc,$border:1px){
+  position:relative;
+  $size2 : $size + $border;
+  @include balloon_top($size,$color,$top);
+  &:before{
+    position:absolute;
+    content:"";
+    display:block;
+    border:$size2 solid transparent;
+    border-bottom:$size2 solid $border-color;
+    top:-1 * $size * 2;
+    left: $left;
+  }
+}
+@mixin balloon_bottom($size: 6px, $color: #FFF, $left: 6px){
+  position: relative;
+  &:after{
+    position: absolute ;
+    content :"";
+    display: block ;
+    border: $size solid transparent ;
+    border-top: $size solid $color ;
+    bottom:-1 * $size * 2;
+    left: $left;
+  }
+}
+@mixin balloon_bottom_border($size:6px,$color:#fff,$top:6px,$border-color:#ccc,$border:1px){
+  position:relative;
+  $size2 : $size + $border;
+  @include balloon_bottom($size,$color,$top);
+  &:before{
+    position:absolute;
+    content:"";
+    display:block;
+    border:$size2 solid transparent;
+    border-top:$size2 solid $border-color;
+    bottom:-1 * $size * 2;
+    left: $left;
+  }
+}
+
+//clearfix
+@mixin clearfix{
+  &:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  }
+}

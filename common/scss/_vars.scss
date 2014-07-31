@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//size
+$max_width:960px;
+
+// Width
+$width_pc: $max_width;
+$width_tablet: 768px;
+$width_smp: 480px;
+// $width_scrollbar: 20px;
+$margin:30px;
+
+//color
+$black:#000;
+$white:#fff;
+$light_gray:#999;
+$dark_gray:#666;
+
+$blue:#297fb8;//light 3598db
+$red:#c1392b;//light e84c3d
+$green:#27ae61;//light 2dcc70
+$green_sea:#16a086;
+$turquoise:#1bbc9b;
+$yellow:#f39c11;//light f1c40f
+$orange:#d25400;//light e67f22
+$pink:#e83dba;//light f172cf
+$violet:#8d44ad;//light 9a59b5
+$silver:#bec3c7;
+$clouds:#ecf0f1;
+
+$text_color:#434343;
+$link_color:#0044cc;
+$hover_color:#cc0022;
+
+$bg_color:#f1f1f1;
+$main_color:#318a97;
+$accent_color:adjust-hue($main_color,200);//accent
+$sub_color1:#f7c14d;//yellow
+$sub_color2:#f7594d;//red
+
+$fb_color:#3b5998;
+$tw_color:#55acee;
+$google_color:#dd4b39;
+
+//img
+$img_path:'../img/';
+

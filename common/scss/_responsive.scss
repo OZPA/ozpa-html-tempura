@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+@import "compass";
+@import "vars";
+
+//responsive
+.cont{
+  @include clearfix;
+  @include center_layout(30px);
+  @include mq_tab_smp{
+  margin-top: 30px;
+  width: 100%;
+  padding:0 10px;
+}
+}
+.row{
+  @include mq_pc{
+  @include clearfix;
+  max-width: 960px;
+}
+}
+
+.span_1{width: 8.33%;}
+.span_2{width: 16.66%;}
+.span_3{width: 25%;}
+.span_4{width: 33.33%;}
+.span_5{width: 41.66%;}
+.span_6{width: 50%;}
+.span_7{width: 58.33%;}
+.span_8{width: 66.66%;}
+.span_9{width: 75%;}
+.span_10{width: 83.33%;}
+.span_11{width: 91.66;}
+.span_12{width: 100%;}
+
+@for $value from 1 through 12{
+  .span_#{$value}{
+    @include mq_pc{
+    display: block;
+    padding: 0 10px;
+    float: left;
+    &.span_op{
+      float: right !important;
+    }
+  }
+  @include mq_tab_smp{
+    width: 100%;
+    margin-bottom: $margin;
+    float: none;
+    img{
+      margin: auto;
+      display: block;
+    }
+  }
+  @include mq_tablet{
+    width: 100%;
+    margin-bottom: $margin;
+    float: none;
+  }
+  @include mq_smp{
+    width: 100%;
+    margin-bottom: $margin;
+    float: none;
+  }
+}
+}
+.span_6_tab{
+  @include mq_tablet{
+  width: 50% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+.span_4_tab{
+  @include mq_tablet{
+  width: 33.3% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+.span_3_tab{
+  @include mq_tablet{
+  width: 25% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+
+
+.span_6_smp{
+  @include mq_tablet{
+  width: 50% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+.span_4_smp{
+  @include mq_tablet{
+  width: 33.3% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+.span_3_smp{
+  @include mq_tablet{
+  width: 25% !important;
+  padding: 0 10px !important;
+  float: left !important;
+}
+}
+
+.dn_pc{
+  @include mq_pc{
+  display: none;
+}
+}
+.dn_smp{
+  @include mq_smp{
+  display: none;
+}
+}
+.dn_tablet{
+  @include mq_tablet{
+  display: none;
+}
+}
+.dn_tab_smp{
+  @include mq_tab_smp{
+  display: none;
+}
+}
+
+//img
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}

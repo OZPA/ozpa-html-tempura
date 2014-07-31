@@ -1,0 +1,9 @@
+http_path = "/"
+css_dir = "common/css"
+sass_dir = "common/scss"
+# output_style = :compressed
+images_dir = "common/img"
+javascripts_dir = "common/js"
+relative_assets = true
+line_comments = false
+# cache = false

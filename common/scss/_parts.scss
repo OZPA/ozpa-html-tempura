@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+@import "compass";
+@import "vars";
+
+.btn {
+  background-color: $main_color;
+  border: none;
+  color: $white;
+  display: inline-block;
+  padding: 0.7em 1.5em 0.5em 1.5em;
+  text-align: center;
+  text-decoration: none;
+  @include border-radius(5px);
+  @include hover_effect;
+  &.small {
+    font-size: 60%;
+    padding-top: 0.8em;
+    padding-bottom: 0.6em;
+    @include border-radius(3px);
+  }
+  &.large {
+    font-size: 140%;
+    padding-top: 0.6em;
+    padding-bottom: 0.5em;
+    @include border-radius(8px);
+  }
+  &.x-large {
+    font-size: 200%;
+    padding-top: 0.5em;
+    padding-bottom: 0.4em;
+    @include border-radius(10px);
+  }
+  &:hover {
+    color: $accent_color;
+  }
+}
+
+.box{
+  padding: halfMargin();
+}
+.box_bd{
+  @include clearfix;
+  border: 1px solid $light_gray;
+  padding: 10px;
+  &.box_bdrds{
+    border-radius: 3px;
+  }
+}
+
+
+//image
+.imageR{
+  float:right;
+  margin-left: halfMargin();
+}
+.imageL{
+  float:left;
+  margin-right: halfMargin();
+}

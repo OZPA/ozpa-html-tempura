@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import "compass";
+@import "vars";
+
+//box-sizing
+*{ @include box-sizing(border-box); }
+
+html {
+  overflow-y: scroll;
+  font-size: 62.5%;
+}
+body{
+  @include fz(16);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  color: $text_color;
+}
+br {
+  letter-spacing: normal;
+}
+
+img {
+  border: 0;
+  vertical-align: bottom;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+
+//font
+p {
+  color: $text_color;
+}
+h1{
+}
+h2 {
+}
+h3{
+}
+h4{
+}
+//link
+a {
+  color: $link_color;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+    color: $hover_color;
+  }
+  &:link, &:visited {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.clearfix{
+  &:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  }
+}
